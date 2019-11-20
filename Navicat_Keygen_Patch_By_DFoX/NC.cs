@@ -736,10 +736,20 @@ namespace Navicat_Keygen_Patch_By_DFoX
                             {
                                 if (clvalue == "Simplified Chinese" || clvalue == "Traditional Chinese" || cswvalue == "Navicat v15" || cswvalue == "Modeler v3")
                                 {
-                                    manipulator.SetText(editHandles[6], this.Serial.Substring(startIndex, 4));
-                                    manipulator.SetText(editHandles[5], this.Serial.Substring(startIndex += 5, 4));
-                                    manipulator.SetText(editHandles[4], this.Serial.Substring(startIndex += 5, 4));
-                                    manipulator.SetText(editHandles[3], this.Serial.Substring(startIndex + 5, 4));
+                                    if (editHandles.Count() == 5)
+                                    {
+                                        manipulator.SetText(editHandles[6], this.Serial.Substring(startIndex, 4));
+                                        manipulator.SetText(editHandles[5], this.Serial.Substring(startIndex += 5, 4));
+                                        manipulator.SetText(editHandles[4], this.Serial.Substring(startIndex += 5, 4));
+                                        manipulator.SetText(editHandles[3], this.Serial.Substring(startIndex + 5, 4));
+                                    }
+                                    else
+                                    {
+                                        manipulator.SetText(editHandles[5], this.Serial.Substring(startIndex, 4));
+                                        manipulator.SetText(editHandles[4], this.Serial.Substring(startIndex += 5, 4));
+                                        manipulator.SetText(editHandles[3], this.Serial.Substring(startIndex += 5, 4));
+                                        manipulator.SetText(editHandles[2], this.Serial.Substring(startIndex + 5, 4));
+                                    }
                                 }
                                 else
                                 {
@@ -1175,7 +1185,7 @@ namespace Navicat_Keygen_Patch_By_DFoX
                 comboprod.Items.Insert(cpr, prod[cpr]);
             for (int lng = 0; lng < lang.Length; lng++)
                 combolang.Items.Insert(lng, lang[lng]);
-            comboSw.SelectedIndex = comboSw.FindStringExact("Navicat v12");
+            comboSw.SelectedIndex = comboSw.FindStringExact("Navicat v15");
             comboprod.SelectedIndex = comboprod.FindStringExact("Premium");
             combolang.SelectedIndex = langname.Contains(ln) ? combolang.FindStringExact(lang[Array.IndexOf(langname, ln)])
                     : combolang.FindStringExact("English");
